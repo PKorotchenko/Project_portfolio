@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - My Portfolio{% endblock %}
+
+{% block content %}
+<section class="projects-section">
+    <div class="projects-container">
+        <h1>My Projects</h1>
+        <p class="section-subtitle">Here are some of my recent projects and work</p>
+
+        <div class="projects-grid">
+            {% for project in projects %}
+            <div class="project-card">
+                <div class="project-header">
+                    <h2>{{ project.title }}</h2>
+                </div>
+                <p class="project-description">{{ project.description }}</p>
+                <a href="{{ project.github }}" class="project-link" target="_blank">
+                    View on GitHub →
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
