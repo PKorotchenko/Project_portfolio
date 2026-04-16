@@ -1,22 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}Projects - My Portfolio{% endblock %}
+{% block title %}Проекты - Портфолио{% endblock %}
 
 {% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Проекты</h1>
+        <p class="hero-subtitle">Реализованные решения и специализация</p>
+        <p class="hero-description">
+            Здесь собраны ключевые направления работы: ERP-интеграции, HTTP-сервисы, автоматизация отчетности и наставничество.
+            Нажмите на проект, чтобы узнать подробности о каждом решении.
+        </p>
+    </div>
+</section>
+
 <section class="projects-section">
     <div class="projects-container">
-        <h1>My Projects</h1>
-        <p class="section-subtitle">Here are some of my recent projects and work</p>
+        <p class="section-subtitle">Выберите проект для подробной информации</p>
 
         <div class="projects-grid">
             {% for project in projects %}
-            <div class="project-card">
+            <div class="project-card" data-liquid-glass="true">
                 <div class="project-header">
                     <h2>{{ project.title }}</h2>
                 </div>
                 <p class="project-description">{{ project.description }}</p>
-                <a href="{{ project.github }}" class="project-link" target="_blank">
-                    View on GitHub →
+                <a href="/projects/{{ project.id }}" class="project-link">
+                    Подробнее →
                 </a>
             </div>
             {% endfor %}
